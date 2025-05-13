@@ -1,9 +1,9 @@
-import UploadImage from "./components/UploadImage";
+import ImageUpload from "./components/UploadImage";
 
 export default function Home() {
   return (
     <div>
-      <UploadImage />
+      <ImageUpload />
     </div>
   );
 }

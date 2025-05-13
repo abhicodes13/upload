@@ -5,6 +5,7 @@ const ImageUpload = () => {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -49,10 +50,17 @@ const ImageUpload = () => {
     }
   };
 
+  function copyToClipboard() {
+    if (imageUrl) {
+      navigator.clipboard.writeText(imageUrl);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    }
+  }
   return (
     <div className="app-container">
       <div className="content">
-        <h1>Upload Your Image</h1>
+        <h1>Upload Your Image to get a URL</h1>
 
         <input
           type="file"
@@ -69,6 +77,9 @@ const ImageUpload = () => {
           <div className="image-preview">
             <h2>Uploaded Image:</h2>
             <img src={imageUrl} alt="Uploaded" className="uploaded-img" />
+            <button onClick={copyToClipboard} className="copy">
+              {copySuccess ? "Copied" : "Copy URL"}
+            </button>
           </div>
         )}
       </div>

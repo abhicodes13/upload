@@ -13,7 +13,7 @@ export async function GET() {
     const { resources } = await cloudinary.search
       .expression("folder:uploads") // change 'upload' to your folder name
       .sort_by("created_at", "desc")
-      .max_results(20)
+      .max_results(12)
       .execute();
 
     return NextResponse.json({ images: resources });

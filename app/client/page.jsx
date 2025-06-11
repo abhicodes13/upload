@@ -26,14 +26,14 @@ export default function ClientGallery() {
       <h2 className="title">Image Gallery</h2>
 
       {loading ? (
-        <div className="loader">Loading images...</div>
+        <div className="loader">Loading all images......</div>
       ) : (
         <div className="grid">
           {images.map((img) => (
             <img
               key={img.asset_id}
               src={img.secure_url}
-              alt=""
+              alt="images from backend"
               className="thumb"
               onClick={() => setSelectedImage(img.secure_url)}
             />
@@ -50,7 +50,7 @@ export default function ClientGallery() {
       <style jsx>{`
         .title {
           text-align: center;
-          font-size: 2rem;
+          font-size: 3rem;
           margin: 1rem 0;
         }
         .loader {

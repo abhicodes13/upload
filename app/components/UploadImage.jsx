@@ -80,6 +80,7 @@ const ImageUpload = () => {
             <button onClick={copyToClipboard} className="copy">
               {copySuccess ? "Copied" : "Copy URL"}
             </button>
+            <h4>Thanks for using our service</h4>
           </div>
         )}
       </div>
